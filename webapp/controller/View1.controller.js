@@ -3,8 +3,9 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "printinglogbook/model/data",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (Controller, JSONModel, AppData, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/model/Sorter"
+], function (Controller, JSONModel, AppData, Filter, FilterOperator, Sorter) {
     "use strict";
 
     function $id(sId) {
@@ -61,6 +62,7 @@ sap.ui.define([
             this._renderUserInfo();
             this._renderProductDistribution();
             this._attachSearchHandler();
+            this._attachGroupHandler();
             this._attachCreateHandler();
             
             // Set initial table count from binding
@@ -182,6 +184,50 @@ sap.ui.define([
                     this._setTextById("plbTableCount", "Standard Items (" + oBinding.getLength() + ")");
                 }
             }
+        },
+
+        _attachGroupHandler: function () {
+            var that = this;
+            var oSelect = $id("plbGroupSelect");
+            if (!oSelect || oSelect._plbBound) return;
+            oSelect._plbBound = true;
+
+            oSelect.addEventListener("change", function () {
+                that._applyGroupFilter(oSelect.value);
+            });
+        },
+
+        _applyGroupFilter: function (sField) {
+            var oTable = this.byId("logTable");
+            if (!oTable) return;
+            var oBinding = oTable.getBinding("items");
+            if (!oBinding) return;
+
+            if (sField === "none" || !sField) {
+                oBinding.sort([]);
+                return;
+            }
+
+            var sPath = sField;
+            if (sField === "date") {
+                sPath = "dateTime";
+            }
+
+            var oSorter = new Sorter(sPath, false, function(oContext) {
+                var vValue = oContext.getProperty(sPath);
+                var sKey = vValue;
+                if (sField === "date") {
+                    var d = new Date(vValue);
+                    sKey = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                } else {
+                    sKey = String(vValue || "Unknown");
+                }
+                return {
+                    key: sKey,
+                    text: sKey
+                };
+            });
+            oBinding.sort([oSorter]);
         },
 
         _attachCreateHandler: function () {
