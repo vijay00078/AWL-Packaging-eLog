@@ -1,5 +1,5 @@
 /* ============================================================
-   Printing Log Book - Custom CSS
+   AWL | Printing Log - Custom CSS
    Replicating Angular SAP Fiori design identically
    ============================================================ */
 
@@ -16,15 +16,17 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 30;
     position: relative;
 }
+
 .plbShellHeader .plbHeaderLeft {
     display: flex;
     align-items: center;
     gap: 12px;
 }
+
 .plbShellHeader .plbHeaderLeft .plbMenuBtn {
     padding: 6px;
     border-radius: 4px;
@@ -34,30 +36,36 @@
     border: none;
     transition: background 0.2s;
 }
+
 .plbShellHeader .plbHeaderLeft .plbMenuBtn:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
+
 .plbShellHeader .plbHeaderLeft .plbLogo {
     display: flex;
     align-items: center;
     gap: 8px;
 }
+
 .plbShellHeader .plbHeaderLeft .plbLogo .plbLogoIcon {
     color: #4db1ff;
     width: 24px;
     height: 24px;
 }
+
 .plbShellHeader .plbHeaderLeft .plbLogo .plbLogoText {
     font-weight: 700;
     letter-spacing: 0.5px;
     font-size: 14px;
     color: #ffffff;
 }
+
 .plbShellHeader .plbHeaderRight {
     display: flex;
     align-items: center;
     gap: 8px;
 }
+
 .plbShellHeader .plbHeaderRight .plbNotifBtn {
     padding: 8px;
     border-radius: 50%;
@@ -67,9 +75,11 @@
     border: none;
     transition: background 0.2s;
 }
+
 .plbShellHeader .plbHeaderRight .plbNotifBtn:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
+
 .plbShellHeader .plbHeaderRight .plbUserBtn {
     padding: 6px;
     border-radius: 50%;
@@ -81,9 +91,11 @@
     align-items: center;
     gap: 8px;
 }
+
 .plbShellHeader .plbHeaderRight .plbUserBtn:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
+
 .plbShellHeader .plbHeaderRight .plbAvatar {
     width: 28px;
     height: 28px;
@@ -97,6 +109,7 @@
     font-weight: 700;
     color: #ffffff;
 }
+
 .plbShellHeader .plbHeaderRight .plbUserName {
     font-size: 13px;
     font-weight: 500;
@@ -112,16 +125,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     z-index: 20;
     position: relative;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbLeft {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbLeft .plbBreadHome {
     color: #9ca3af;
     font-weight: 500;
@@ -132,16 +147,20 @@
     padding: 0;
     font-size: 13px;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbLeft .plbBreadHome:hover {
     color: #0a6ed1;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbLeft .plbBreadSep {
     color: #d1d5db;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbLeft .plbBreadCurrent {
     font-weight: 600;
     color: #1f2937;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbRight {
     font-size: 11px;
     color: #9ca3af;
@@ -149,12 +168,43 @@
     align-items: center;
     gap: 4px;
 }
+
 .plbBreadcrumbBar .plbBreadcrumbRight .plbStatusDot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: #2b7d2b;
     display: inline-block;
+}
+
+.plbPlantFilterWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .plbBreadcrumbBar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+    .plbBreadcrumbBar .plbBreadcrumbLeft {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .plbPlantFilterLabel,
+    .plbPlantSeparator {
+        display: none !important;
+    }
+    .plbPlantFilterWrap {
+        width: 100%;
+        margin-top: 4px;
+    }
+    .plbPlantSelect {
+        width: 100%;
+    }
 }
 
 /* --- KPI Cards --- */
@@ -164,35 +214,41 @@
     gap: 16px;
     margin-bottom: 24px;
 }
+
 @media (max-width: 1024px) {
     .plbKpiGrid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media (max-width: 600px) {
     .plbKpiGrid {
         grid-template-columns: 1fr;
     }
 }
+
 .plbKpiCard {
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     border: 1px solid #f3f4f6;
     padding: 20px;
     transition: box-shadow 0.2s;
     display: flex;
     flex-direction: column;
 }
+
 .plbKpiCard:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .plbKpiCard .plbKpiHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 8px;
 }
+
 .plbKpiCard .plbKpiLabel {
     font-size: 10px;
     color: #9ca3af;
@@ -200,14 +256,24 @@
     text-transform: uppercase;
     letter-spacing: 0.8px;
 }
+
 .plbKpiCard .plbKpiIcon {
     width: 20px;
     height: 20px;
     opacity: 0.7;
 }
-.plbKpiCard .plbKpiIconBlue { color: #0a6ed1; }
-.plbKpiCard .plbKpiIconGreen { color: #16a34a; }
-.plbKpiCard .plbKpiIconOrange { color: #bb6800; }
+
+.plbKpiCard .plbKpiIconBlue {
+    color: #0a6ed1;
+}
+
+.plbKpiCard .plbKpiIconGreen {
+    color: #16a34a;
+}
+
+.plbKpiCard .plbKpiIconOrange {
+    color: #bb6800;
+}
 
 .plbKpiCard .plbKpiValue {
     font-size: 28px;
@@ -215,9 +281,11 @@
     color: #1f2937;
     line-height: 1.2;
 }
+
 .plbKpiCard .plbKpiValueGreen {
     color: #2b7d2b;
 }
+
 .plbKpiCard .plbKpiSubtext {
     margin-top: 12px;
     font-size: 13px;
@@ -226,12 +294,15 @@
     align-items: center;
     gap: 8px;
 }
+
 .plbKpiCard .plbKpiSubtext .plbSubSep {
     color: #d1d5db;
 }
+
 .plbKpiCard .plbKpiSubtext .plbSubMedium {
     font-weight: 500;
 }
+
 .plbKpiCard .plbKpiProgress {
     width: 100%;
     background: #f3f4f6;
@@ -240,29 +311,45 @@
     margin-top: 8px;
     overflow: hidden;
 }
+
 .plbKpiCard .plbKpiProgress .plbKpiBar {
     height: 6px;
     border-radius: 9999px;
     transition: width 0.5s ease;
 }
-.plbKpiBarBlue { background-color: #0a6ed1; }
-.plbKpiBarGreen { background-color: #2b7d2b; }
-.plbKpiBarOrange { background-color: #bb6800; }
-.plbKpiBarRed { background-color: #bb0000; }
+
+.plbKpiBarBlue {
+    background-color: #0a6ed1;
+}
+
+.plbKpiBarGreen {
+    background-color: #2b7d2b;
+}
+
+.plbKpiBarOrange {
+    background-color: #bb6800;
+}
+
+.plbKpiBarRed {
+    background-color: #bb0000;
+}
 
 /* --- Product Distribution Bars (inside KPI 4) --- */
 .plbDistItem {
     margin-bottom: 10px;
 }
+
 .plbDistItem:last-child {
     margin-bottom: 0;
 }
+
 .plbDistHeader {
     display: flex;
     justify-content: space-between;
     font-size: 11px;
     margin-bottom: 4px;
 }
+
 .plbDistName {
     color: #374151;
     font-weight: 500;
@@ -271,10 +358,12 @@
     white-space: nowrap;
     max-width: 128px;
 }
+
 .plbDistCount {
     font-weight: 700;
     color: #111827;
 }
+
 .plbDistBar {
     width: 100%;
     background: #f3f4f6;
@@ -282,6 +371,7 @@
     height: 4px;
     overflow: hidden;
 }
+
 .plbDistBarFill {
     height: 4px;
     border-radius: 9999px;
@@ -293,7 +383,7 @@
 .plbTableContainer {
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     border: 1px solid #f3f4f6;
     overflow: hidden;
 }
@@ -309,21 +399,34 @@
     justify-content: space-between;
     background: #ffffff;
 }
+
 .plbTableToolbar .plbToolbarTitle {
     font-size: 18px;
     font-weight: 700;
     color: #1f2937;
 }
+
 .plbTableToolbar .plbToolbarCount {
     font-size: 11px;
     color: #9ca3af;
     font-weight: 500;
 }
+
 .plbTableToolbar .plbToolbarActions {
     display: flex;
     align-items: center;
     gap: 12px;
 }
+
+@media (max-width: 600px) {
+    .plbTableToolbar .plbToolbarActions {
+        flex-wrap: wrap;
+    }
+    .plbGroupByWrap {
+        width: 100%;
+    }
+}
+
 .plbSearchInput {
     padding: 8px 12px 8px 36px;
     border: 1px solid #d1d5db;
@@ -336,30 +439,36 @@
     position: relative;
     box-sizing: border-box;
 }
+
 .plbSearchInput:focus {
     border-color: #0a6ed1;
     box-shadow: 0 0 0 1px #0a6ed1;
 }
+
 .plbSearchInput:hover {
     background: #f9fafb;
 }
+
 .plbGroupByWrap {
     display: flex;
     align-items: center;
     gap: 8px;
     position: relative;
 }
+
 .plbGroupByLabel {
     font-size: 10px;
     font-weight: 700;
     color: #6b7280;
     text-transform: uppercase;
 }
+
 @media (max-width: 600px) {
     .plbGroupByLabel {
         display: none;
     }
 }
+
 .plbGroupSelect {
     padding: 8px 32px 8px 12px;
     border: 1px solid #d1d5db;
@@ -379,10 +488,12 @@
     background-position: right 12px center;
     background-size: 10px auto;
 }
+
 .plbGroupSelect:focus {
     border-color: #0a6ed1;
     box-shadow: 0 0 0 1px #0a6ed1;
 }
+
 .plbGroupSelect:hover {
     background-color: #f9fafb;
 }
@@ -392,11 +503,13 @@
     background-color: #eef3f7 !important;
     border-bottom: 1px solid #d1e2f1 !important;
 }
+
 .plbUI5Table .sapMGHLITitle {
     font-size: 13px !important;
     font-weight: 700 !important;
     color: #0b1d30 !important;
 }
+
 .plbGroupHeaderBadge {
     display: inline-block;
     background-color: #ffffff;
@@ -413,6 +526,7 @@
 .plbSearchWrap {
     position: relative;
 }
+
 .plbSearchWrap .plbSearchIcon {
     position: absolute;
     left: 12px;
@@ -422,12 +536,14 @@
     color: #9ca3af;
     pointer-events: none;
 }
+
 .plbToolbarSep {
     width: 1px;
     height: 24px;
     background: #e5e7eb;
     margin: 0 4px;
 }
+
 .plbCreateBtn {
     background-color: #0a6ed1;
     color: #ffffff;
@@ -436,16 +552,18 @@
     padding: 8px 16px;
     border-radius: 8px;
     border: none;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: background 0.2s;
     display: flex;
     align-items: center;
     gap: 6px;
 }
+
 .plbCreateBtn:hover {
     background-color: #0854a0;
 }
+
 .plbCreateBtn .plbCreateIcon {
     width: 16px;
     height: 16px;
@@ -455,11 +573,13 @@
 .plbUI5Table {
     width: 100%;
 }
+
 .plbUI5Table .sapMListTblHeaderCell {
     background-color: #f4f7f9 !important;
     padding: 14px 24px !important;
     border-bottom: 1px solid #e5e7eb !important;
 }
+
 .plbUI5Table .sapMListTblHeader .sapMText {
     color: #6b7280;
     font-size: 10px;
@@ -467,28 +587,35 @@
     text-transform: uppercase;
     letter-spacing: 0.8px;
 }
+
 .plbUI5Table .sapMLIB {
     border-bottom: 1px solid #f3f4f6 !important;
 }
+
 .plbUI5Table .sapMLIB:hover {
     background-color: #ebf5ff !important;
 }
+
 .plbUI5Table .sapMListTblCell {
     padding: 16px 24px !important;
     vertical-align: top !important;
 }
+
 .plbProductLinkText {
     color: #0a6ed1;
     font-weight: 700;
     font-size: 13px;
     text-decoration: none;
 }
+
 .plbProductLinkText:hover {
     text-decoration: underline;
 }
+
 .plbEditBtn .sapUiIcon {
     color: #0a6ed1 !important;
 }
+
 .plbDeleteBtn .sapUiIcon {
     color: #bb0000 !important;
 }
@@ -498,6 +625,7 @@
     font-weight: 700;
     color: #111827;
 }
+
 .plbTimeRow {
     font-size: 11px;
     color: #9ca3af;
@@ -506,10 +634,12 @@
     align-items: center;
     gap: 4px;
 }
+
 .plbTimeRow .plbTimeIcon {
     width: 12px;
     height: 12px;
 }
+
 .plbShiftBadge {
     display: inline-block;
     font-size: 9px;
@@ -519,14 +649,17 @@
     padding: 2px 6px;
     border-radius: 4px;
 }
+
 .plbShiftDay {
     background-color: #ffedd5;
     color: #9a3412;
 }
+
 .plbShiftNight {
     background-color: #e0e7ff;
     color: #3730a3;
 }
+
 .plbProductLink {
     color: #0a6ed1;
     font-weight: 700;
@@ -534,17 +667,21 @@
     text-decoration: none;
     transition: text-decoration 0.1s;
 }
+
 .plbProductLink:hover {
     text-decoration: underline;
 }
+
 .plbBoxLabel {
     font-size: 11px;
     color: #6b7280;
     margin-top: 2px;
 }
+
 .plbBoxLabel .plbBoxLabelGray {
     color: #d1d5db;
 }
+
 .plbCompanyName {
     font-weight: 700;
     color: #111827;
@@ -553,15 +690,18 @@
     white-space: nowrap;
     max-width: 150px;
 }
+
 .plbBatchInfo {
     font-size: 11px;
     color: #9ca3af;
     margin-top: 2px;
 }
+
 .plbBatchInfo .plbBatchVal {
     font-weight: 500;
     color: #374151;
 }
+
 .plbWeightRow {
     display: flex;
     justify-content: space-between;
@@ -570,33 +710,46 @@
     font-size: 11px;
     margin-bottom: 4px;
 }
+
 .plbWeightRow .plbWeightLabel {
     color: #9ca3af;
 }
+
 .plbWeightRow .plbWeightVal {
     font-weight: 500;
 }
+
 .plbWeightRow .plbWeightValBold {
     font-weight: 700;
 }
-.plbWeightGreen { color: #2b7d2b; }
-.plbWeightRed { color: #bb0000; }
+
+.plbWeightGreen {
+    color: #2b7d2b;
+}
+
+.plbWeightRed {
+    color: #bb0000;
+}
+
 .plbCounterVal {
     font-size: 13px;
     font-weight: 700;
     color: #1f2937;
 }
+
 .plbCounterUnit {
     font-size: 9px;
     color: #9ca3af;
     font-weight: 400;
 }
+
 .plbPriceVal {
     font-size: 11px;
     color: #2b7d2b;
     font-weight: 500;
     margin-top: 2px;
 }
+
 .plbOperatorRow {
     display: flex;
     align-items: center;
@@ -605,6 +758,7 @@
     font-weight: 500;
     color: #1f2937;
 }
+
 .plbOperatorAvatar {
     width: 20px;
     height: 20px;
@@ -617,6 +771,7 @@
     color: #6b7280;
     font-weight: 700;
 }
+
 .plbRemarkText {
     font-size: 10px;
     color: #9ca3af;
@@ -626,9 +781,11 @@
     white-space: nowrap;
     max-width: 180px;
 }
+
 .plbActionsCell {
     text-align: center;
 }
+
 .plbActionBtn {
     padding: 6px;
     border-radius: 8px;
@@ -637,15 +794,23 @@
     cursor: pointer;
     transition: opacity 0.2s;
 }
+
 .plbActionBtn:hover {
     opacity: 0.75;
 }
+
 .plbActionBtn .plbActionIcon {
     width: 16px;
     height: 16px;
 }
-.plbEditIcon { color: #0a6ed1; }
-.plbDeleteIcon { color: #bb0000; }
+
+.plbEditIcon {
+    color: #0a6ed1;
+}
+
+.plbDeleteIcon {
+    color: #bb0000;
+}
 
 /* --- Empty State --- */
 .plbEmptyState {
@@ -653,17 +818,20 @@
     text-align: center;
     color: #9ca3af;
 }
+
 .plbEmptyState .plbEmptyIcon {
     width: 48px;
     height: 48px;
     color: #d1d5db;
     margin: 0 auto 16px;
 }
+
 .plbEmptyState .plbEmptyTitle {
     font-size: 18px;
     font-weight: 700;
     color: #374151;
 }
+
 .plbEmptyState .plbEmptySub {
     font-size: 13px;
     margin-top: 4px;
@@ -675,7 +843,7 @@
     margin: 0 auto;
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     border: 1px solid #e5e7eb;
     overflow: hidden;
     display: flex;
@@ -692,11 +860,13 @@
     position: relative;
     overflow: hidden;
 }
+
 .plbObjectHeader .plbOHTitle {
     font-size: 22px;
     font-weight: 700;
     color: #ffffff;
 }
+
 .plbObjectHeader .plbOHSubtitle {
     font-size: 13px;
     color: #93c5fd;
@@ -705,6 +875,7 @@
     align-items: center;
     gap: 8px;
 }
+
 .plbObjectHeader .plbOHSubtitle .plbOHDot {
     width: 4px;
     height: 4px;
@@ -717,7 +888,7 @@
     padding: 32px;
     flex: 1;
     overflow: auto;
-    background: rgba(244,247,249,0.5);
+    background: rgba(244, 247, 249, 0.5);
 }
 
 /* --- Form Sections --- */
@@ -726,12 +897,14 @@
     padding: 24px;
     border-radius: 12px;
     border: 1px solid #f3f4f6;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     margin-bottom: 32px;
 }
+
 .plbFormSection:last-child {
     margin-bottom: 0;
 }
+
 .plbFormSectionTitle {
     font-size: 18px;
     font-weight: 700;
@@ -740,37 +913,51 @@
     padding-bottom: 8px;
     border-bottom: 1px solid #f3f4f6;
 }
+
 .plbFormGrid {
     display: grid;
     gap: 24px;
 }
+
 .plbFormGrid3 {
     grid-template-columns: repeat(3, 1fr);
 }
+
 .plbFormGrid4 {
     grid-template-columns: repeat(4, 1fr);
 }
+
 .plbFormGrid2 {
     grid-template-columns: 1fr 2fr;
 }
+
 @media (max-width: 900px) {
-    .plbFormGrid3, .plbFormGrid4 {
+
+    .plbFormGrid3,
+    .plbFormGrid4 {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .plbFormGrid2 {
         grid-template-columns: 1fr;
     }
 }
+
 @media (max-width: 600px) {
-    .plbFormGrid3, .plbFormGrid4, .plbFormGrid2 {
+
+    .plbFormGrid3,
+    .plbFormGrid4,
+    .plbFormGrid2 {
         grid-template-columns: 1fr;
     }
 }
+
 .plbFieldGroup {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
+
 .plbFieldLabel {
     font-size: 10px;
     color: #6b7280;
@@ -781,9 +968,11 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .plbFieldLabel .plbRequired {
     color: #bb0000;
 }
+
 .plbFieldLabel .plbFieldHint {
     font-size: 8px;
     color: #d1d5db;
@@ -791,6 +980,7 @@
     font-weight: 400;
     margin-top: 2px;
 }
+
 .plbFieldLabel .plbSetToMe {
     font-size: 8px;
     color: #0a6ed1;
@@ -798,9 +988,11 @@
     cursor: pointer;
     text-transform: none;
 }
+
 .plbFieldLabel .plbSetToMe:hover {
     text-decoration: underline;
 }
+
 .plbInput,
 .plbSelect,
 .plbTextarea {
@@ -814,34 +1006,41 @@
     width: 100%;
     box-sizing: border-box;
 }
+
 .plbInput:focus,
 .plbSelect:focus,
 .plbTextarea:focus {
     border-color: #0a6ed1;
     box-shadow: 0 0 0 1px #0a6ed1;
 }
+
 .plbInputReadonly {
     background: #f9fafb;
     color: #9ca3af;
     cursor: not-allowed;
     border-color: #e5e7eb;
 }
+
 .plbInputReadonly:focus {
     border-color: #e5e7eb;
     box-shadow: none;
 }
+
 .plbInputUppercase {
     text-transform: uppercase;
 }
+
 .plbPriceInput {
     padding-left: 28px;
     color: #2b7d2b;
     font-weight: 500;
     background: #f9fafb;
 }
+
 .plbPriceWrap {
     position: relative;
 }
+
 .plbPriceWrap .plbRupeeSign {
     position: absolute;
     left: 12px;
@@ -850,13 +1049,16 @@
     font-size: 13px;
     pointer-events: none;
 }
+
 .plbWeightInputWrap {
     display: flex;
     gap: 8px;
 }
+
 .plbWeightInputWrap .plbInput {
     flex: 1;
 }
+
 .plbScanBtn {
     padding: 8px 12px;
     background: #f4f7f9;
@@ -865,19 +1067,22 @@
     color: #6b7280;
     cursor: pointer;
     transition: all 0.2s;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     display: flex;
     align-items: center;
 }
+
 .plbScanBtn:hover {
     background: #ebf5ff;
     color: #0a6ed1;
     border-color: #0a6ed1;
 }
+
 .plbScanBtn .plbScanIcon {
     width: 16px;
     height: 16px;
 }
+
 .plbCounterInput {
     font-weight: 700;
     color: #1f2937;
@@ -893,6 +1098,7 @@
     gap: 16px;
     border-radius: 0 0 12px 12px;
 }
+
 .plbCancelBtn {
     padding: 10px 20px;
     font-size: 13px;
@@ -904,9 +1110,11 @@
     cursor: pointer;
     transition: background 0.2s;
 }
+
 .plbCancelBtn:hover {
     background: #ebf5ff;
 }
+
 .plbSaveBtn {
     padding: 10px 32px;
     font-size: 13px;
@@ -916,12 +1124,14 @@
     border: 1px solid #0a6ed1;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     transition: background 0.2s;
 }
+
 .plbSaveBtn:hover {
     background: #0854a0;
 }
+
 .plbSaveBtn:disabled {
     background: #89baeb;
     border-color: #89baeb;
@@ -932,7 +1142,7 @@
 .plbDeleteOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 50;
     display: flex;
     align-items: center;
@@ -940,14 +1150,16 @@
     padding: 16px;
     animation: plbFadeIn 0.2s ease-in-out;
 }
+
 .plbDeleteDialog {
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     max-width: 448px;
     width: 100%;
     overflow: hidden;
 }
+
 .plbDeleteDialogHeader {
     background: #bb0000;
     padding: 16px 24px;
@@ -956,32 +1168,39 @@
     align-items: center;
     gap: 12px;
 }
+
 .plbDeleteDialogHeader .plbDeleteDialogIcon {
     width: 24px;
     height: 24px;
 }
+
 .plbDeleteDialogHeader .plbDeleteDialogTitle {
     font-size: 18px;
     font-weight: 700;
 }
+
 .plbDeleteDialogBody {
     padding: 24px;
 }
+
 .plbDeleteDialogBody .plbDeleteMsg {
     color: #374151;
     font-size: 14px;
 }
+
 .plbDeleteDialogBody .plbDeleteDetail {
     font-size: 13px;
     color: #9ca3af;
     margin-top: 8px;
 }
+
 .plbDeleteDialogBody .plbDeleteWarn {
     font-size: 13px;
     color: #bb0000;
     font-weight: 500;
     margin-top: 16px;
 }
+
 .plbDeleteDialogFooter {
     background: #f9fafb;
     border-top: 1px solid #e5e7eb;
@@ -990,6 +1209,7 @@
     justify-content: flex-end;
     gap: 12px;
 }
+
 .plbDeleteCancelBtn {
     padding: 8px 16px;
     font-size: 13px;
@@ -1001,9 +1221,11 @@
     cursor: pointer;
     transition: background 0.2s;
 }
+
 .plbDeleteCancelBtn:hover {
     background: #f3f4f6;
 }
+
 .plbDeleteConfirmBtn {
     padding: 8px 16px;
     font-size: 13px;
@@ -1012,10 +1234,11 @@
     background: #bb0000;
     border: 1px solid #bb0000;
     border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: background 0.2s;
 }
+
 .plbDeleteConfirmBtn:hover {
     background: #8a0000;
 }
@@ -1024,7 +1247,7 @@
 .plbScannerOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -1034,17 +1257,20 @@
     animation: plbFadeIn 0.2s ease-in-out;
     backdrop-filter: blur(4px);
 }
+
 .plbScannerTitle {
     font-size: 22px;
     font-weight: 300;
     color: #ffffff;
     margin-bottom: 4px;
 }
+
 .plbScannerSubtitle {
     font-size: 13px;
     color: #9ca3af;
     margin-bottom: 24px;
 }
+
 .plbScannerBox {
     width: 288px;
     height: 288px;
@@ -1056,9 +1282,10 @@
     margin-bottom: 24px;
     position: relative;
     overflow: hidden;
-    background: rgba(0,0,0,0.5);
-    box-shadow: 0 0 20px rgba(77,177,255,0.2);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(77, 177, 255, 0.2);
 }
+
 .plbScannerBox .plbScanline {
     position: absolute;
     top: 0;
@@ -1068,11 +1295,13 @@
     box-shadow: 0 0 15px 3px #4db1ff;
     animation: plbScanline 2s linear infinite;
 }
+
 .plbScannerBox .plbScanBoxIcon {
     width: 64px;
     height: 64px;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255, 255, 255, 0.2);
 }
+
 .plbScannerCancelBtn {
     padding: 8px 24px;
     border-radius: 9999px;
@@ -1083,8 +1312,9 @@
     transition: all 0.2s;
     font-size: 13px;
 }
+
 .plbScannerCancelBtn:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
 }
 
@@ -1097,6 +1327,7 @@
     z-index: 20;
     position: relative;
 }
+
 .plbFooter .plbFooterText {
     font-size: 11px;
     color: #d1d5db;
@@ -1105,21 +1336,45 @@
 
 /* --- Animations --- */
 @keyframes plbFadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 @keyframes plbScanline {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(284px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(284px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .plbAnimateFadeIn {
     animation: fadeIn 0.4s ease-out;
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Main content area --- */
@@ -1135,9 +1390,10 @@
 }
 
 /* --- Override sap.m.Page padding --- */
-.sapMPage > section {
+.sapMPage>section {
     padding: 0 !important;
 }
+
 .plbPageContent {
     display: flex;
     flex-direction: column;
@@ -1161,66 +1417,176 @@
 
 /* --- PWA Install Prompt Styles --- */
 .plbPwaOverlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(2, 6, 23, 0.7);
     backdrop-filter: blur(4px);
     z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1.25rem;
     animation: plbPwaFadeIn 0.3s ease-out;
 }
+
 .plbPwaCard {
     background-color: #ffffff;
     border-radius: 1.5rem;
-    width: 100%; max-width: 24rem;
+    width: 100%;
+    max-width: 24rem;
     padding: 1.5rem;
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     border: 1px solid #f1f5f9;
     position: relative;
     animation: plbPwaScaleUp 0.3s ease-out;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
+
 .plbPwaCloseBtn {
-    position: absolute; top: 1rem; right: 1rem;
-    width: 2rem; height: 2rem;
-    border-radius: 50%; background-color: #f1f5f9;
-    display: flex; align-items: center; justify-content: center;
-    color: #94a3b8; border: none; cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    border: none;
+    cursor: pointer;
     transition: all 0.2s;
     padding: 0;
 }
-.plbPwaCloseBtn:hover { background-color: #e2e8f0; color: #475569; }
-.plbPwaHeader { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1rem; }
-.plbPwaIconBox {
-    width: 3.5rem; height: 3.5rem;
-    border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; background-color: #ffffff; border: 1px solid #f1f5f9; flex-shrink: 0;
+
+.plbPwaCloseBtn:hover {
+    background-color: #e2e8f0;
+    color: #475569;
 }
-.plbPwaIconBox img { width: 3rem; height: 3rem; object-fit: contain; }
-.plbPwaTitle { font-size: 1rem; font-weight: 900; color: #0f172a; line-height: 1.25; margin: 0; }
-.plbPwaSubtitle { font-size: 0.75rem; color: #64748b; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem; }
-.plbPwaSteps { display: flex; flex-direction: column; gap: 1rem; }
-.plbPwaStep { display: flex; align-items: center; gap: 0.75rem; }
+
+.plbPwaHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.plbPwaIconBox {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    flex-shrink: 0;
+}
+
+.plbPwaIconBox img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.plbPwaTitle {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.plbPwaSubtitle {
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.plbPwaSteps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.plbPwaStep {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .plbPwaStepIcon {
-    width: 2.25rem; height: 2.25rem;
-    border-radius: 0.75rem; background-color: #fff7ed;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    background-color: #fff7ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     color: #f37a20;
 }
-.plbPwaStepText { font-size: 0.875rem; color: #334155; }
-.plbPwaStepNum { color: #94a3b8; font-weight: bold; margin-right: 0.375rem; }
-.plbPwaBtn {
-    width: 100%; margin-top: 1.5rem; padding: 0.75rem;
-    background: linear-gradient(to right, #f37a20, #fab915);
-    color: #ffffff; border-radius: 1rem; font-size: 0.875rem;
-    font-weight: bold; border: none; box-shadow: 0 4px 6px -1px rgba(243,122,32,0.3);
-    cursor: pointer; transition: all 0.2s;
+
+.plbPwaStepText {
+    font-size: 0.875rem;
+    color: #334155;
 }
-.plbPwaBtn:active { transform: scale(0.98); }
-@keyframes plbPwaFadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes plbPwaScaleUp { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.plbPwaStepNum {
+    color: #94a3b8;
+    font-weight: bold;
+    margin-right: 0.375rem;
+}
+
+.plbPwaBtn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(to right, #f37a20, #fab915);
+    color: #ffffff;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(243, 122, 32, 0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.plbPwaBtn:active {
+    transform: scale(0.98);
+}
+
+@keyframes plbPwaFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes plbPwaScaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 /* --- Mobile Responsiveness for Table Toolbar --- */
 @media (max-width: 600px) {
@@ -1229,19 +1595,33 @@
         align-items: flex-start;
         gap: 12px;
     }
+
     .plbTableToolbar .plbToolbarActions {
         width: 100%;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
     }
+
+    .plbGroupByWrap {
+        width: 100%;
+    }
+
+    .plbGroupSelect {
+        width: 100%;
+    }
+
     .plbSearchWrap {
         flex: 1;
     }
+
     .plbSearchInput {
         width: 100%;
     }
+
     .plbToolbarSep {
         display: none;
     }
+
     .plbCreateBtn {
         flex-shrink: 0;
     }

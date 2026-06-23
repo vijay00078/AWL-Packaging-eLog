@@ -16,7 +16,7 @@
                     </html:button>
                     <html:div class="plbLogo">
                         <svg:svg class="plbLogoIcon plbSvgFill" width="24" height="24" viewBox="0 0 24 24"><svg:path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg:svg>
-                        <html:span class="plbLogoText">AWL Packaging eLog</html:span>
+                        <html:span class="plbLogoText">AWL | Printing Log</html:span>
                     </html:div>
                 </html:div>
                 <html:div class="plbHeaderRight">
@@ -36,10 +36,17 @@
                     <html:span class="plbBreadHome">Home</html:span>
                     <html:span class="plbBreadSep">/</html:span>
                     <html:span class="plbBreadCurrent">Overview &amp; Log Book</html:span>
+                    <html:span class="plbPlantSeparator" style="color: #d1d5db; margin: 0 4px;">|</html:span>
+                    <html:div class="plbPlantFilterWrap">
+                        <html:span class="plbPlantFilterLabel" style="color: #6b7280; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Plant/Company:</html:span>
+                        <html:select class="plbPlantSelect" id="plbPlantFilterSelect" style="font-size: 0.875rem; font-weight: 600; background: #ffffff; border: 1px solid #000000; border-radius: 3px; padding: 2px 8px; cursor: pointer; color: #0a6ed1;">
+                            <html:option value="All">All Plants / Companies</html:option>
+                        </html:select>
+                    </html:div>
                 </html:div>
                 <html:div class="plbBreadcrumbRight">
                     <html:span class="plbStatusDot"></html:span>
-                    System Online
+                    <html:span>System Online</html:span>
                 </html:div>
             </html:div>
 
@@ -107,7 +114,7 @@
                     <!-- Toolbar -->
                     <html:div class="plbTableToolbar">
                         <html:div>
-                            <html:h2 class="plbToolbarTitle">AWL Packaging eLog</html:h2>
+                            <html:h2 class="plbToolbarTitle">AWL | Printing Log</html:h2>
                             <html:span class="plbToolbarCount" id="plbTableCount"></html:span>
                         </html:div>
                         <html:div class="plbToolbarActions">

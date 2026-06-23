@@ -98,7 +98,7 @@ sap.ui.define([
                    '    </button>' +
                    '    <div class="plbPwaHeader">' +
                    '      <div class="plbPwaIconBox">' +
-                   '        <img src="images/icon.svg" alt="AWL eLog Logo" />' +
+                   '        <img src="images/sauda_logo.png" alt="AWL eLog Logo" />' +
                    '      </div>' +
                    '      <h3 class="plbPwaTitle">Install AWL Packaging eLog on your HomeScreen</h3>' +
                    '    </div>' +

@@ -58,17 +58,40 @@ sap.ui.define([
         },
 
         _renderAll: function () {
-            this._computeKPIs();
+            this._renderPlantFilter();
+            
+            // For initial render, we can apply current filters (which sets table bindings & KPIs)
+            var oInput = $id("plbSearchField");
+            var sQuery = oInput ? oInput.value : "";
+            this._applySearchFilter(sQuery);
+            
             this._renderUserInfo();
-            this._renderProductDistribution();
             this._attachSearchHandler();
             this._attachGroupHandler();
             this._attachCreateHandler();
+        },
+
+        _renderPlantFilter: function () {
+            var that = this;
+            var oSelect = $id("plbPlantFilterSelect");
+            if (!oSelect) return;
             
-            // Set initial table count from binding
-            var oTable = this.byId("logTable");
-            if (oTable && oTable.getBinding("items")) {
-                this._setTextById("plbTableCount", "Standard Items (" + oTable.getBinding("items").getLength() + ")");
+            if (!oSelect._plbBound) {
+                oSelect.innerHTML = '<option value="All">All Plants / Companies</option>';
+                AppData.COMPANY_OPTIONS.forEach(function (opt) {
+                    var option = document.createElement("option");
+                    option.value = opt;
+                    option.textContent = opt;
+                    oSelect.appendChild(option);
+                });
+
+                oSelect.addEventListener("change", function () {
+                    that._sCurrentPlant = oSelect.value;
+                    var oInput = $id("plbSearchField");
+                    var sQuery = oInput ? oInput.value : "";
+                    that._applySearchFilter(sQuery);
+                });
+                oSelect._plbBound = true;
             }
         },
 
@@ -83,10 +106,10 @@ sap.ui.define([
             if (oName) oName.textContent = sUser;
         },
 
-        _computeKPIs: function () {
+        _computeKPIs: function (aLogsParam) {
             var oModel = this.getOwnerComponent().getModel("appData");
             if (!oModel) return;
-            var aLogs = oModel.getProperty("/logs") || [];
+            var aLogs = Array.isArray(aLogsParam) ? aLogsParam : (oModel.getProperty("/logs") || []);
 
             var totalCounter = 0, totalGross = 0, totalNet = 0, totalPrice = 0;
             var oCounts = {};
@@ -176,12 +199,27 @@ sap.ui.define([
                     and: false
                 }));
             }
+
+            var sPlant = this._sCurrentPlant || "All";
+            if (sPlant !== "All") {
+                aFilters.push(new Filter("companyName", FilterOperator.EQ, sPlant));
+            }
+
             var oTable = this.byId("logTable");
             if (oTable) {
                 var oBinding = oTable.getBinding("items");
                 if (oBinding) {
-                    oBinding.filter(aFilters);
+                    var finalFilter = [];
+                    if (aFilters.length > 0) {
+                        finalFilter = [new Filter({ filters: aFilters, and: true })];
+                    }
+                    oBinding.filter(finalFilter);
                     this._setTextById("plbTableCount", "Standard Items (" + oBinding.getLength() + ")");
+                    
+                    var aContexts = oBinding.getContexts(0, oBinding.getLength());
+                    var aLogs = aContexts.map(function(c) { return c.getObject(); });
+                    this._computeKPIs(aLogs);
+                    this._renderProductDistribution();
                 }
             }
         },
@@ -308,11 +346,9 @@ sap.ui.define([
             var oOverlay = document.getElementById("plbDeleteOverlay");
             if (oOverlay) oOverlay.remove();
 
-            this._computeKPIs();
-            var oTable = this.byId("logTable");
-            if (oTable && oTable.getBinding("items")) {
-                this._setTextById("plbTableCount", "Standard Items (" + oTable.getBinding("items").getLength() + ")");
-            }
+            var oInput = $id("plbSearchField");
+            var sQuery = oInput ? oInput.value : "";
+            this._applySearchFilter(sQuery);
         },
 
         _setTextById: function (sId, sText) {
