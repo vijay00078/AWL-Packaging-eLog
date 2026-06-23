@@ -1,7 +1,7 @@
 {
   "name": "AWL Packaging eLog",
   "short_name": "AWL eLog",
-  "description": "Printing Log Book Application",
+  "description": "AWL Packaging eLog",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",

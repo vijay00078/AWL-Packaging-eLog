@@ -1,6 +1,6 @@
 _schema-version: "3.2"
 ID: printinglogbook
-description: An SAP Fiori application.
+description: AWL Packaging eLog Application
 version: 0.0.1
 parameters:
   enable-parallel-deployments: true

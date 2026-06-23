@@ -334,6 +334,7 @@
     outline: none;
     background: #ffffff;
     position: relative;
+    box-sizing: border-box;
 }
 .plbSearchInput:focus {
     border-color: #0a6ed1;
