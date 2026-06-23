@@ -1,0 +1,7 @@
+{
+  "xsappname": "printinglogbook-app",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of printinglogbook application",
+  "scopes": [],
+  "role-templates": []
+}

@@ -1,0 +1,99 @@
+_schema-version: "3.2"
+ID: printinglogbook
+description: An SAP Fiori application.
+version: 0.0.1
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install
+        - npm run build
+modules:
+  - name: printinglogbook-destination-content
+    type: com.sap.application.content
+    build-parameters:
+      no-source: true
+    requires:
+      - name: printinglogbook-destination-service
+        parameters:
+          content-target: true
+      - name: printinglogbook-repo-host
+        parameters:
+          ServiceInstanceName: printinglogbook-html5-srv
+      - name: printinglogbook-uaa
+        parameters:
+          service-key:
+            name: printinglogbook-uaa-key
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: printinglogbook_html5_repo_host
+              ServiceInstanceName: printinglogbook-html5-srv
+              ServiceKeyName: printinglogbook-repo-host-key
+              sap.cloud.service: printinglogbook
+            - Authentication: OAuth2UserTokenExchange
+              Name: printinglogbook_uaa
+              ServiceInstanceName: printinglogbook-xsuaa-srv
+              ServiceKeyName: printinglogbook-uaa-key
+              sap.cloud.service: printinglogbook
+          existing_destinations_policy: ignore
+  - name: printinglogbook-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: printinglogbook-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - printinglogbook.zip
+          name: printinglogbook
+          target-path: resources/
+  - name: printinglogbook
+    type: html5
+    path: .
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+
+resources:
+  - name: printinglogbook-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+            existing_destinations_policy: update
+        version: 1.0.0
+      service: destination
+      service-name: printinglogbook-destination-service
+      service-plan: lite
+  - name: printinglogbook-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-name: printinglogbook-xsuaa-srv
+      service-plan: application
+  - name: printinglogbook-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: printinglogbook-html5-srv
+      service-plan: app-host

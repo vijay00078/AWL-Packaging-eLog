@@ -1,0 +1,12 @@
+<mvc:View controllerName="printinglogbook.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <html:div style="height: 100%; position: relative;">
+        <App id="app" backgroundColor="#f4f7f9" style="height: 100%;"></App>
+        <core:HTML content="{path: 'appData>/showPwaInstallPrompt', formatter: '.formatPwaInstallPrompt'}" />
+    </html:div>
+</mvc:View>

@@ -1,0 +1,17 @@
+{
+  "name": "AWL Packaging eLog",
+  "short_name": "AWL eLog",
+  "description": "Printing Log Book Application",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {
+      "src": "images/icon.svg",
+      "sizes": "192x192 512x512 any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
