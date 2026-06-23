@@ -1153,3 +1153,28 @@
 .plbPwaBtn:active { transform: scale(0.98); }
 @keyframes plbPwaFadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes plbPwaScaleUp { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* --- Mobile Responsiveness for Table Toolbar --- */
+@media (max-width: 600px) {
+    .plbTableToolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .plbTableToolbar .plbToolbarActions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .plbSearchWrap {
+        flex: 1;
+    }
+    .plbSearchInput {
+        width: 100%;
+    }
+    .plbToolbarSep {
+        display: none;
+    }
+    .plbCreateBtn {
+        flex-shrink: 0;
+    }
+}
